@@ -30,7 +30,8 @@ Application that is designed to take in Team Member data and put together a HTML
  - Manager.test.js 
 
 ## Example of Functionality 
-![Team Profile Generator Preview](./assets/team-profile-generator.png)
+![Team Profile Generator Preview](./assets/team-profile-generator.gif)
+[View Walkthrough Video](https://drive.google.com/file/d/1k6qZy8N0eBx3-_7ssBjRuxHPCfii2E-h/view?usp=sharing)
 ## Instructions 
 1. Fork and clone repository
 2. Create directory under /develop
