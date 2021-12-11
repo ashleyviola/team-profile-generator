@@ -164,5 +164,29 @@ const addEmployee = () => {
                 default: false
             }
         ])
+        .then(employeeData => {
+            // data for employee types
+            let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+            let employee;
+
+            if(role === "Engineer") {
+                employee = new Engineer (name, id, email, github);
+                console.table(employee);
+            } else if (role === "Intern"){
+                employee = new Intern (name, id, email, school);
+                console.table(employee);
+            }
+            teamArray.push(employee);
+            if(confirmAddEmployee){
+                return addEmployee(teamArray);
+            } else {
+                console.table(teamArray)
+                return teamArray
+            }
+        })
 }
-addEmployee();
+addManager()
+    .then(addEmployee)
+    .catch(err => {
+        console.log(err);
+    })
