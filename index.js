@@ -1,5 +1,5 @@
 // link to HTML page creation 
-
+const generateHTML = require('./src/generateHTML');
 // link to employee profiles 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -185,8 +185,27 @@ const addEmployee = () => {
             }
         })
 }
+
+// function to generate HTML page file using file system
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if(err){
+            console.log(err);
+            return;
+        } else {
+            console.log("Your team profile has been successfully created! Please check out index.html")
+        }
+    })
+}
+
 addManager()
     .then(addEmployee)
+    .then(teamArray => {
+        return generateHTML(teamArray);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
     .catch(err => {
         console.log(err);
     })
